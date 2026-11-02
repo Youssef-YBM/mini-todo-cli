@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { add, complete, format } from './todo.js';
+import { add, complete, remove, format } from './todo.js';
 
 test('add assigns incrementing ids and trims text', () => {
   const items = add(add([], ' first '), 'second');
@@ -20,4 +20,10 @@ test('complete marks one item and rejects unknown ids', () => {
 test('format renders checkboxes', () => {
   assert.equal(format(complete(add([], 'a'), 1)), '[x] 1. a');
   assert.equal(format([]), 'No todos yet.');
+});
+
+test('remove deletes one item and rejects unknown ids', () => {
+  const items = remove(add(add([], 'a'), 'b'), 1);
+  assert.deepEqual(items.map((i) => i.text), ['b']);
+  assert.throws(() => remove(items, 9), /No todo/);
 });

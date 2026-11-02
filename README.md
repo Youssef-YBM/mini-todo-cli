@@ -6,6 +6,7 @@ A tiny todo list CLI stored in `todos.json`.
 node todo.js add "Write tests"
 node todo.js list
 node todo.js done 1
+node todo.js remove 1
 npm test
 ```
 
