@@ -1,0 +1,8 @@
+{
+  "name": "mini-todo-cli",
+  "version": "0.1.0",
+  "description": "A tiny JSON-backed todo CLI.",
+  "type": "module",
+  "private": true,
+  "scripts": { "test": "node --test" }
+}
